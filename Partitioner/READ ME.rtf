@@ -1,67 +1,30 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1347\cocoasubrtf570
-{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww17320\viewh12060\viewkind0
-\deftab720
-\pard\pardeftab720\sl320\sa240
 
-\f0\b\fs24 \cf0 \expnd0\expndtw0\kerning0
-\ul \ulc0 INTRODUCTION
-\b0 \expnd0\expndtw0\kerning0
-\ulnone \
-The Partitioner is designed to be used with a netboot image which\'a0automatically logs in as root user to aid in partitioning a drive and then launches Casper Imaging.\
-Apple provides new machines formatted as core storage. Core storage is a logical volume manager used for file vault encrypted\'a0volumes and fusion drives.\'a0\'a0 This is so that when filevault is activated the machine does not need to reboot to change the partition format.\
-For new machines carrying out modular imaging, if the volume is not partitioned and reformatted Casper imaging cannot erase the disk and block copy the Service Now image.\
-Also when rebuilding a recycled machine if the volume is not deleted and the disk is not partitioned the previous owners account shows up on the filevault encryption screen.\
-This can lead to inconsistencies throughout an organisation and Partitioner addresses this\
+The Partitioner is designed to be used with a netboot image which automatically logs in as root user to aid in partitioning a drive and then launches Casper Imaging.
+Apple provides new machines formatted as core storage. Core storage is a logical volume manager used for file vault encrypted volumes and fusion drives. 
 
-\b \expnd0\expndtw0\kerning0
-\ul MANUAL PROCESS
-\b0 \expnd0\expndtw0\kerning0
-\ulnone \
-\pard\pardeftab720\sl320\sa199
-\cf0 \expnd0\expndtw0\kerning0
+This is so that when filevault is activated the machine does not need to reboot to change the partition format.
+
+For new machines carrying out modular imaging, if the volume is not partitioned and reformatted Casper imaging cannot erase the disk and block copy the image.
+Also when rebuilding a recycled machine if the volume is not deleted and the disk is not partitioned the previous owners account shows up on the filevault encryption screen.
+This can lead to inconsistencies throughout an organisation and Partitioner addresses this.
+
+MANUAL PROCESS
+
 The manual process of deleting the partition and reformatting the disk volume can be done using disk utility but there are a few steps to take and if doing it for many machines can take up some time.
-\b \expnd0\expndtw0\kerning0
-\
-\pard\pardeftab720\sl320
 
-\b0 \cf0 \expnd0\expndtw0\kerning0
-\
-\pard\pardeftab720\sl320
+AUTOMATED PROCESS
 
-\b \cf0 \expnd0\expndtw0\kerning0
-\ul AUTOMATED PROCESS
-\b0 \expnd0\expndtw0\kerning0
-\ulnone \
-\pard\pardeftab720\sl320\sa240
-\cf0 \expnd0\expndtw0\kerning0
-To make this quicker, more streamlined and consistent throughout ServiceNow I have created an app called Partitioner.\
-\'b7\'a0\'a0\'a0\'a0\'a0\'a0 You will not need to enter a password to mount the encrypted volume\
-\'b7\'a0\'a0\'a0\'a0\'a0\'a0 You will not need to delete the partition and format the volume using disk utility\
-\'b7\'a0\'a0\'a0\'a0\'a0\'a0 When clicking on Partition the disk force unmount, automatically partition and Casper Imaging  	 will automatically launch\
-\'b7\'a0\'a0\'a0\'a0\'a0\'a0 If you accidentally forget to remove a usb flash drive, it will be force ejected and then mounted again to avoid accidental partitioning \'a0of the device.\
-\'b7\'a0\'a0\'a0\'a0\'a0\'a0 If you are carrying out anything other than modular standard imaging using netboot like thin imaging or target disk mode imaging \'a0you must not use the application and have the option to click on Skip and the disk will not be re partitioned.\
-\'b7\'a0\'a0\'a0\'a0\'a0\'a0 Clicking Abort if the machine is encrypted will then prompt you to type in the password and mount the volume.\
+To make this quicker, more streamlined and consistent.
+You will not need to enter a password to mount an encrypted volume
+You will not need to delete the partition and format the volume using disk utility
+When clicking on Partition the disk force unmount, automatically partition and Casper Imaging will automatically launch
+If you accidentally forget to remove a usb flash drive, it will be force ejected and then mounted again to avoid accidental partitioning of the device.
 
-\b \expnd0\expndtw0\kerning0
-\ul INSTALLER \
+If you are carrying out anything other than modular standard imaging using netboot like thin imaging or target disk mode imaging you must not use the application and have the option to click on Skip and the disk will not be re partitioned.
+Clicking Abort if the machine is encrypted will then prompt you to type in the password and mount the volume.
 
-\b0 \expnd0\expndtw0\kerning0
-\ulnone Includes \
-\pard\pardeftab720\sl320\sa240
-\cf0 \expnd0\expndtw0\kerning0
-\'b7\'a0\expnd0\expndtw0\kerning0
-Partitioner App\
-\expnd0\expndtw0\kerning0
-\'b7\'a0 launch daemon & script to unload /System/Library/LaunchDaemons/com.apple.corestorage.corestoraged.plist to stop annoying pops up to unlock encrypted volumes\
-. Login item so the app with launch automatically at login\expnd0\expndtw0\kerning0
-\
-\pard\pardeftab720\sl320\sa240
+INSTALLER
 
-\b \cf0 \expnd0\expndtw0\kerning0
-\ul \
-
-\b0 \expnd0\expndtw0\kerning0
-\ulnone \
-}
+-Partitioner App
+-launch daemon & script to unload /System/Library/LaunchDaemons/com.apple.corestorage.corestoraged.plist to stop annoying pops up to unlock encrypted volumes
+-Login item so the app will launch automatically at login.
