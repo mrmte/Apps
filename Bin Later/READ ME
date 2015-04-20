@@ -1,0 +1,7 @@
+A useful app to tidy your desktop.
+
+The application will pop up with the following message
+
+"This will move all your Desktop items to a folder called Bin Later followed by the date in your home directory. Do you want to continue?"
+
+If click YES button the n your items get moved. If click No nothing happens
